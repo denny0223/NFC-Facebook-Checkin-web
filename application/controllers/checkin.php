@@ -36,16 +36,12 @@ class Checkin extends CI_Controller {
 		if(isset($fbId)){
 			// todo: write to user_info DB
 			if(!$this->Checkin_model->isFBIdValid($fbId)){
-				echo "null<br>";
 			}
 		}
 
 		if(isset($result)){
 			$str = urldecode(json_encode($result));
 			echo $str;
-		}
-		else{
-			echo "null";
 		}
 	}
 
