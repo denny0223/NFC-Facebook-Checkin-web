@@ -25,7 +25,7 @@
 				</tr>
 			</table>
 
-			<div><input type="submit" value="Submit" /></div>
+			<div><input type="submit" value="Login" /></div>
 
 			<?php form_close(); ?>
 
