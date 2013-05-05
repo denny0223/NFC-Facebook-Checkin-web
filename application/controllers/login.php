@@ -22,6 +22,11 @@ class Login extends CI_Controller {
 	{
 		$this->load->library('session');
 
+		if($this->session->userdata('userId')){
+			$this->load->helper('url');
+//			redirect('/checkin/getStoreInfo/AAAA');
+		}
+
 		$this->load->helper(array('form', 'url'));
 
 		$this->load->library('form_validation');
@@ -30,12 +35,10 @@ class Login extends CI_Controller {
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		$this->form_validation->set_rules('login', 'login', 'callback_isUserValid');
 
-		if ($this->form_validation->run() == FALSE)
-		{
+		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('login');
 		}
-		else
-		{
+		else {
 			$this->load->view('formsuccess');
 		}
 	}
@@ -46,8 +49,22 @@ class Login extends CI_Controller {
 		$password = addslashes($this->input->post('password'));
 
 		$this->load->model('Login_model', '', TRUE);
+
+		$query = $this->Login_model->isUserValid($username, $password);
 		
-		if($this->Login_model->isUserValid($username, $password)){
+		if($query->num_rows()){
+
+			foreach($query->result() as $row){
+				$userId = $row->id;
+			}
+
+			$data = array(
+				'username'	=> $username,
+				'userId'	=> $userId
+			);
+			
+			$this->session->set_userdata($data);
+
 			return TRUE;
 		}
 	
