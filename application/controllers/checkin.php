@@ -18,25 +18,24 @@ class Checkin extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 
-	public function getStoreInfo($tag_id = null, $fb_id = null)
+	public function getStoreInfo($tagId = null, $fbId = null)
 	{
 		$this->load->model("Checkin_model", '', TRUE);
 
-		$tag_id = addslashes($tag_id);
+		$tagId = addslashes($tagId);
 
-		$data = $this->Checkin_model->getStoreInfo($tag_id);
+		$data = $this->Checkin_model->getStoreInfo($tagId);
 
-		foreach($data->result() as $row)
-		{
+		foreach($data->result() as $row) {
 			$result['store_id']		= $row->store_id;
 			$result['store_name']	= $row->store_name;
 			$result['coupon_msg']	= $row->coupon_msg;
 			$result['feedback_url']	= $row->feedback_url;
 		}
 
-		if(isset($fb_id)){
+		if(isset($fbId)){
 			// todo: write to user_info DB
-			if(!$this->Checkin_model->isFBIdValid($fb_id)){
+			if(!$this->Checkin_model->isFBIdValid($fbId)){
 				echo "null<br>";
 			}
 		}

@@ -17,20 +17,20 @@ class Checkin_model extends CI_Model {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function getStoreInfo($nfc_id)
+	public function getStoreInfo($tagId)
 	{
 		$sql = "SELECT *
 				FROM store_info
 				WHERE tag_id = ?";
 
-		$query = $this->db->query($sql , array($nfc_id));
+		$query = $this->db->query($sql , array($tagId));
 
 		return $query;
 	}
 
-	public function isFBIdValid($fb_id)
+	public function isFBIdValid($fbId)
 	{
-		if(@file_get_contents("https://graph.facebook.com/" . $fb_id)){
+		if(@file_get_contents("https://graph.facebook.com/" . $fbId)){
 			return TRUE;
 		}
 		return FALSE;
