@@ -26,7 +26,6 @@ class Login extends CI_Controller {
 
 		$this->form_validation->set_rules('username', 'Username', 'callback_username_check');
 		$this->form_validation->set_rules('password', 'Password', 'required');
-		$this->form_validation->set_rules('passconf', 'Password Confirmation', 'required');
 
 		if ($this->form_validation->run() == FALSE)
 		{

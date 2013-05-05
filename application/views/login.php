@@ -6,26 +6,32 @@
 	</head>
 	<body>
 		
-		<?php echo validation_errors(); ?>
+		<div align="center">
 
-		<?php echo form_open('login'); ?>
+			<?php echo form_open('login'); ?>
 
-		<h5>Username</h5>
-		<input type="text" name="username" value="" size="50" />
+			<table border="0">
+				<tr>
+					<th>Username</th>
+					<td>
+						<input type="text" name="username" value="<?php echo set_value('username'); ?>" />
+					</td>
+				</tr>
+				<tr>
+					<th>Password</th>
+					<td>
+						<input type="password" name="password" value="" />
+					</td>
+				</tr>
+			</table>
 
-		<h5>Password</h5>
-		<input type="text" name="password" value="" size="50" />
+			<div><input type="submit" value="Submit" /></div>
 
-		<h5>Password Confirm</h5>
-		<input type="text" name="passconf" value="" size="50" />
+			<?php form_close(); ?>
 
-		<h5>Email Address</h5>
-		<input type="text" name="email" value="" size="50" />
+			<?php echo validation_errors('<div style="font-size: small; color: red;">', '</div>'); ?>
 
-		<div><input type="submit" value="Submit" /></div>
+		</div>
 
-		</form>
-
-		<?php echo anchor_popup('login', 'Login'); ?>
 	</body>
 </html>
