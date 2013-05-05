@@ -20,12 +20,15 @@ class Login extends CI_Controller {
 
 	function index()
 	{
+		$this->load->library('session');
+
 		$this->load->helper(array('form', 'url'));
 
 		$this->load->library('form_validation');
 
-		$this->form_validation->set_rules('username', 'Username', 'callback_username_check');
+		$this->form_validation->set_rules('username', 'Username', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
+		$this->form_validation->set_rules('login', 'login', 'callback_isUserValid');
 
 		if ($this->form_validation->run() == FALSE)
 		{
@@ -37,17 +40,20 @@ class Login extends CI_Controller {
 		}
 	}
 
-	public function username_check($str)
+	public function isUserValid()
 	{
-		if ($str == 'test')
-		{
-			$this->form_validation->set_message('username_check', 'The %s field can not be the word "test"');
-			return FALSE;
-		}
-		else
-		{
+		$username = addslashes($this->input->post('username'));
+		$password = addslashes($this->input->post('password'));
+
+		$this->load->model('Login_model', '', TRUE);
+		
+		if($this->Login_model->isUserValid($username, $password)){
 			return TRUE;
 		}
+	
+		$this->form_validation->set_message('isUserValid', 'Username or Password Error!!');
+
+		return FALSE;
 	}
 
 }
