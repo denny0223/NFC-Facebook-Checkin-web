@@ -19,14 +19,14 @@ class Login_model extends CI_Model {
 	 */
 	public function isUserValid($username, $password)
 	{
-		$sql = "SELECT `username`
+		$sql = "SELECT `id`
 				FROM `account` 
 				WHERE `username` = ?
 				AND `password` = MD5(CONCAT(MD5(?), 'nfccheckin'))";
 
 		$query = $this->db->query($sql , array($username, $password));
 
-		return $query->num_rows();
+		return $query;
 	}
 
 }
