@@ -30,8 +30,11 @@ class Checkin_model extends CI_Model {
 
 	public function isFBIdValid($fbId)
 	{
-		if(@file_get_contents("https://graph.facebook.com/" . $fbId)){
-			return TRUE;
+		if($json = @file_get_contents("https://graph.facebook.com/" . $fbId)){
+			$data = json_decode($json, true);
+			if(isset($data['first_name']) && isset($data['last_name'])){
+				return TRUE;
+			}
 		}
 		return FALSE;
 	}
