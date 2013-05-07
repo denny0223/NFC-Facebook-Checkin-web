@@ -22,8 +22,18 @@ class Login extends CI_Controller {
 	{
 		$this->load->library('session');
 
+		var_dump($this->session->userdata('username'));
+		var_dump($this->session->userdata('userId'));
 		if($this->session->userdata('userId')){
 			$this->load->helper('url');
+			if($this->session->userdata('username') == 'mgr'){
+				$tmp = 'Rootmgr';
+				var_dump($tmp);
+			}
+			else{
+				$tmp = 'NotRootMgr';
+				var_dump($tmp);
+			}
 //			redirect('/checkin/getStoreInfo/AAAA');
 		}
 
