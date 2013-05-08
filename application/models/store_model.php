@@ -32,7 +32,19 @@ class Store_model extends CI_Model {
 		}
 
 		return false;
+	}
 
+	public function getStoreInfo($storeId)
+	{
+		$storeId = addslashes($storeId);
+
+		$sql = "SELECT * 
+				FROM  `store_info` 
+				WHERE  `id` = ?";
+
+		$query = $this->db->query($sql, array($storeId));
+
+		return $query;
 	}
 
 }
