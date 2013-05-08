@@ -2,7 +2,7 @@
 
 class Logout extends CI_Controller {
 
-	function index()
+	public function index()
 	{
 		$this->load->library('session');
 		$this->load->library('form_validation');

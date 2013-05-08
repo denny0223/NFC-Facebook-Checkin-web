@@ -2,7 +2,7 @@
 
 class Login extends CI_Controller {
 
-	function index()
+	public function index()
 	{
 		$this->load->library('session');
 
