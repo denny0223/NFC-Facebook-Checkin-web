@@ -47,5 +47,17 @@ class Store_model extends CI_Model {
 		return $query;
 	}
 
+	public function updateMsg($storeId, $msg)
+	{
+		$storeId = addslashes($storeId);
+		$msg = addslashes($msg);
+
+		$sql = "UPDATE  `store_info`
+				SET  `coupon_msg` = ?
+				WHERE  `id` = ?";
+
+		$this->db->query($sql, array($msg, $storeId));
+	}
+
 }
 
