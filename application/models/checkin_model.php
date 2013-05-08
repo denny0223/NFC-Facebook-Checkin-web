@@ -26,7 +26,11 @@ class Checkin_model extends CI_Model {
 		return FALSE;
 	}
 
-	public function userCheckin($fbId, $storeId){
+	public function userCheckin($fbId, $storeId)
+	{
+		$fbId = addslashes($fbId);
+		$storeId = addslashes($storeId);
+
 		$sql = "INSERT INTO `user_info`
 					(`fb_id`, `date`, `store_id`)
 				VALUES (?, CURRENT_TIMESTAMP, ?)";
