@@ -6,6 +6,7 @@
 		
 	</head>
 	<body>
+		<?php require_once('header.php'); ?>
 		<div align="center">
 			<table border="1">
 				<tr>
