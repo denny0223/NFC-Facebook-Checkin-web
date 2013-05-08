@@ -42,9 +42,9 @@ class Login extends CI_Controller {
 		$username = addslashes($this->input->post('username'));
 		$password = addslashes($this->input->post('password'));
 
-		$this->load->model('Login_model', '', TRUE);
+		$this->load->model('Account_model', '', TRUE);
 
-		$query = $this->Login_model->isUserValid($username, $password);
+		$query = $this->Account_model->isUserValid($username, $password);
 		
 		if($query->num_rows()){
 
