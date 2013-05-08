@@ -15,5 +15,25 @@ class Store_model extends CI_Model {
 		return $query;
 	}
 
+	public function isStoreOwner($storeId, $userId)
+	{
+		$storeId = addslashes($storeId);
+		$userId = addslashes($userId);
+
+		$sql = "SELECT * 
+				FROM  `store_info` 
+				WHERE  `id` =  ?
+				AND  `owner_id` =  ?";
+
+		$query = $this->db->query($sql, array($storeId, $userId));
+
+		if($query->num_rows() > 0){
+			return true;
+		}
+
+		return false;
+
+	}
+
 }
 
