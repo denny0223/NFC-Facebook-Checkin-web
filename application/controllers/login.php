@@ -8,18 +8,6 @@ class Login extends CI_Controller {
 
 		var_dump($this->session->userdata('username'));
 		var_dump($this->session->userdata('userId'));
-		if($this->session->userdata('userId')){
-			$this->load->helper('url');
-			if($this->session->userdata('username') == 'mgr'){
-				$tmp = 'Rootmgr';
-				var_dump($tmp);
-			}
-			else{
-				$tmp = 'NotRootMgr';
-				var_dump($tmp);
-			}
-//			redirect('/checkin/getStoreInfo/AAAA');
-		}
 
 		$this->load->helper(array('form', 'url'));
 
@@ -32,8 +20,16 @@ class Login extends CI_Controller {
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('login');
 		}
-		else {
-			$this->load->view('formsuccess');
+
+		if($this->session->userdata('userId')){
+			$this->load->helper('url');
+			if($this->session->userdata('username') == 'mgr'){
+				$tmp = 'Rootmgr';
+				var_dump($tmp);
+			}
+			else{
+				redirect('/admin');
+			}
 		}
 	}
 
