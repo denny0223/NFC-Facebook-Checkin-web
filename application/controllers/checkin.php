@@ -6,8 +6,6 @@ class Checkin extends CI_Controller {
 	{
 		$this->load->model("Checkin_model", '', TRUE);
 
-		$tagId = addslashes($tagId);
-
 		$data = $this->Checkin_model->getStoreInfo($tagId);
 
 		foreach($data->result() as $row) {
@@ -19,8 +17,8 @@ class Checkin extends CI_Controller {
 		}
 
 		if(isset($fbId)){
-			// todo: write to user_info DB
-			if(!$this->Checkin_model->isFBIdValid($fbId)){
+			if($this->Checkin_model->isFBIdValid($fbId)){
+				$this->Checkin_model->userCheckin($fbId, $storeId);
 			}
 		}
 
