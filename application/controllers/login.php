@@ -4,14 +4,12 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->library('session');
+		$this->load->library(array('session', 'form_validation'));
 
 		var_dump($this->session->userdata('username'));
 		var_dump($this->session->userdata('userId'));
 
 		$this->load->helper(array('form', 'url'));
-
-		$this->load->library('form_validation');
 
 		$this->form_validation->set_rules('username', 'Username', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
