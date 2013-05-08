@@ -11,7 +11,8 @@ class Checkin extends CI_Controller {
 		$data = $this->Checkin_model->getStoreInfo($tagId);
 
 		foreach($data->result() as $row) {
-			$result['store_id']		= $row->store_id;
+			$storeId 				= $row->id;
+			$result['page_id']		= $row->page_id;
 			$result['store_name']	= $row->store_name;
 			$result['coupon_msg']	= $row->coupon_msg;
 			$result['feedback_url']	= $row->feedback_url;
