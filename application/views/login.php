@@ -27,7 +27,7 @@
 
 			<div><input type="submit" name="login" value="Login" /></div>
 
-			<?php form_close(); ?>
+			<?php echo form_close(); ?>
 
 			<?php echo validation_errors('<div style="font-size: small; color: red;">', '</div>'); ?>
 
