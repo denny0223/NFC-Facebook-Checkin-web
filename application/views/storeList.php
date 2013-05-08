@@ -24,7 +24,7 @@
 						<?php echo htmlspecialchars($stores[$i]['store_name']); ?>
 					</td>
 					<td align="center">
-						<?php echo htmlspecialchars($stores[$i]['coupon_msg']); ?>
+						<?php echo htmlspecialchars(stripslashes($stores[$i]['coupon_msg'])); ?>
 					</td>
 					<td align="center">
 						<?php echo anchor_popup($stores[$i]['feedback_url'], 'link'); ?>
