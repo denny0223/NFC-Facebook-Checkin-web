@@ -6,6 +6,7 @@ class Admin extends CI_Controller {
 	{
 		$this->load->library('session');
 		$this->load->helper('url');
+		$this->load->model("Store_model", '', TRUE);
 
 		$userId = $this->session->userdata('userId');
 		$username = $this->session->userdata('username');
@@ -14,6 +15,14 @@ class Admin extends CI_Controller {
 		if(!$userId || $username == 'mgr'){
 			redirect('/login');
 		}
+
+		$query = $this->Store_model->getOwnStore($userId);
+
+		$stores = $query->result_array();
+
+		$data['stores'] = $stores;
+
+		$this->load->view('storeList', $data);
 
 	}
 
