@@ -27,5 +27,14 @@ class Account_model extends CI_Model {
 		return $query;
 	}
 
+	public function setNewPassword($userId, $newpwd)
+	{
+		$sql = "UPDATE `account`
+				SET `password` = MD5(CONCAT(MD5(?), 'nfccheckin'))
+				WHERE `id` = ?";
+
+		$this->db->query($sql, array($newpwd, $userId));
+	}
+
 }
 
