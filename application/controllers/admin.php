@@ -39,7 +39,7 @@ class Admin extends CI_Controller {
 			redirect('/login');
 		}
 
-		$this->form_validation->set_rules('msg', 'Message', 'require');
+		$this->form_validation->set_rules('submit', 'submit', 'required');
 
 		$cancel = $this->input->post('cancel');
 		if($cancel == 'Cancel') redirect('/admin');
@@ -57,4 +57,5 @@ class Admin extends CI_Controller {
 		$this->load->view('adminStoreModify', $storeInfo);
 
 	}
+
 }
