@@ -4,7 +4,7 @@ class Account_model extends CI_Model {
 
 	public function isUserValid($username, $password)
 	{
-		$sql = "SELECT `id`
+		$sql = "SELECT `id`, `username`, `email`
 				FROM `account` 
 				WHERE `username` = ?
 				AND `password` = MD5(CONCAT(MD5(?), 'nfccheckin'))";
