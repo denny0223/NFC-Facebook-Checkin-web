@@ -59,4 +59,38 @@ class Admin extends CI_Controller {
 
 	}
 
+	public function account($accountId = null)
+	{
+		$this->load->library(array('session', 'form_validation'));
+		$this->load->helper(array('form', 'url'));
+		$this->load->model("Account_model", '', TRUE);
+
+		$userId = $this->session->userdata('userId');
+
+		// Authentication
+		if(!$accountId || $userId != $accountId){
+			redirect('/login');
+		}
+
+		$this->form_validation->set_rules('curpwd', 'Current password', 'required');
+		$this->form_validation->set_rules('newpwd', 'New password', 'required|matches[newpwdconf]');
+		$this->form_validation->set_rules('newpwdconf', 'New password confirm');
+
+		$cancel = $this->input->post('cancel');
+		if($cancel == 'Cancel') redirect('/admin');
+
+		if($this->form_validation->run() == TRUE) {
+			$this->session->set_flashdata('resmsg', 'Set new password successfully!');
+			$this->Account_model->setNewPassword($userId, $this->input->post('newpwd'));
+			redirect('/admin');
+		}
+
+		$query = $this->Account_model->getAccountInfo($userId);
+
+		$accountInfo = $query->row_array();
+
+		$this->load->view('accountModify', $accountInfo);
+
+	}
+
 }
