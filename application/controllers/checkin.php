@@ -5,6 +5,7 @@ class Checkin extends CI_Controller {
 	public function getStoreInfo($tagId = null, $fbId = null)
 	{
 		$this->load->model("Checkin_model", '', TRUE);
+		$this->output->set_content_type('application/json');
 
 		$data = $this->Checkin_model->getStoreInfo($tagId);
 
