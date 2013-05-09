@@ -17,7 +17,7 @@
 					<td><?php echo htmlspecialchars($username); ?>
 				</tr>
 				<tr>
-					<th>Current password</th>
+					<th>Current password<font color="red">*</font></th>
 					<td><input type="password" name="curpwd" value=""></td>
 				</tr>
 				<tr>
