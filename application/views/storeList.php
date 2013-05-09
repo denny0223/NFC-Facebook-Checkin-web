@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<?php require_once('header.php'); ?>
-		<?php if(isset($resmsg)){ ?>
+		<?php if(!empty($resmsg)){ ?>
 		<div align="center" style="font-size: small; color: red;">
 			<?php echo $resmsg; ?>
 		</div>
