@@ -29,6 +29,15 @@
 					<td><input type="password" name="newpwdconf" value=""></td>
 				</tr>
 				<tr>
+					<th>E-mail</th>
+					<td><input type="email" name="email" value="<?php
+							$svemail = set_value('email');
+							if(!empty($svemail)) echo $svemail;
+							else echo htmlspecialchars($email);
+						?>">
+					</td>
+				</tr>
+				<tr>
 					<th>Google account</th>
 					<td><?php echo htmlspecialchars($google_account_id); ?></td>
 				</tr>
