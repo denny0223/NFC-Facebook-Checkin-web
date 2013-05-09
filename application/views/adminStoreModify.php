@@ -39,12 +39,12 @@
 			</table>
 
 			<br>
+
+			<?php echo validation_errors('<div style="font-size: small; color: red;">'); ?>
 			
 			<input type="submit" name="cancel" value="Cancel">
 			<input type="submit" name="submit" value="Submit">
 			<?php echo form_close(); ?>
-
-			<?php echo validation_errors('<div style="font-size: small; color: red;">'); ?>
 
 		</div>
 	</body>
