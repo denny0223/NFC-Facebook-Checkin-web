@@ -73,15 +73,30 @@ class Admin extends CI_Controller {
 		}
 
 		$this->form_validation->set_rules('curpwd', 'Current password', 'required|callback_isUserValid');
-		$this->form_validation->set_rules('newpwd', 'New password', 'required|matches[newpwdconf]');
-		$this->form_validation->set_rules('newpwdconf', 'New password confirm');
+		$this->form_validation->set_rules('newpwd', 'New password', 'matches[newpwdconf]');
+		$this->form_validation->set_rules('email', 'E-mail', '');
 
 		$cancel = $this->input->post('cancel');
 		if($cancel == 'Cancel') redirect('/admin');
 
 		if($this->form_validation->run() == TRUE) {
-			$this->session->set_flashdata('resmsg', 'Set new password successfully!');
-			$this->Account_model->setNewPassword($userId, $this->input->post('newpwd'));
+
+			$newpwd = $this->input->post('newpwd');
+			$newmail = $this->input->post('email');
+
+			if(!empty($newpwd)){
+				$resmsg .= 'Set new password successfully!<br>';
+				$this->Account_model->setNewPassword($userId, $newpwd);
+			}
+
+			if($this->session->userdata('email') != $newmail){
+				$resmsg .= 'Update e-mail successfully!<br>';
+				$this->Account_model->updateMail($userId, $newmail);
+				$this->session->set_userdata('email', $newmail);
+			}
+
+			$this->session->set_flashdata('resmsg', $resmsg);
+
 			redirect('/admin');
 		}
 
