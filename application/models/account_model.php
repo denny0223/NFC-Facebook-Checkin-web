@@ -9,7 +9,20 @@ class Account_model extends CI_Model {
 				WHERE `username` = ?
 				AND `password` = MD5(CONCAT(MD5(?), 'nfccheckin'))";
 
-		$query = $this->db->query($sql , array($username, $password));
+		$query = $this->db->query($sql, array($username, $password));
+
+		return $query;
+	}
+
+	public function getAccountInfo($userId)
+	{
+		$userId = addslashes($userId);
+
+		$sql = "SELECT `id`, `username`, `google_account_id`
+				FROM `account` 
+				WHERE `id` = ?";
+
+		$query = $this->db->query($sql, array($userId));
 
 		return $query;
 	}
