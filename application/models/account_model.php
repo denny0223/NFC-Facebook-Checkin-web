@@ -4,6 +4,8 @@ class Account_model extends CI_Model {
 
 	public function isUserValid($username, $password)
 	{
+		$username = addslashes($username);
+
 		$sql = "SELECT `id`, `username`, `email`
 				FROM `account` 
 				WHERE `username` = ?

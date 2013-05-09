@@ -33,8 +33,8 @@ class Login extends CI_Controller {
 
 	public function isUserValid()
 	{
-		$username = addslashes($this->input->post('username'));
-		$password = addslashes($this->input->post('password'));
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
 
 		$this->load->model('Account_model', '', TRUE);
 
