@@ -37,8 +37,8 @@
 
 			<?php echo validation_errors('<div style="font-size: small; color: red;">'); ?>
 			
-			<input type="submit" name="cancel" value="Cancel">
 			<input type="submit" name="submit" value="Submit">
+			<input type="submit" name="cancel" value="Cancel">
 			<?php echo form_close(); ?>
 
 		</div>
