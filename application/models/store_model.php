@@ -50,7 +50,6 @@ class Store_model extends CI_Model {
 	public function updateMsg($storeId, $msg)
 	{
 		$storeId = addslashes($storeId);
-		$msg = addslashes($msg);
 
 		$sql = "UPDATE  `store_info`
 				SET  `coupon_msg` = ?
