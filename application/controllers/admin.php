@@ -72,7 +72,7 @@ class Admin extends CI_Controller {
 			redirect('/login');
 		}
 
-		$this->form_validation->set_rules('curpwd', 'Current password', 'required');
+		$this->form_validation->set_rules('curpwd', 'Current password', 'required|callback_isUserValid');
 		$this->form_validation->set_rules('newpwd', 'New password', 'required|matches[newpwdconf]');
 		$this->form_validation->set_rules('newpwdconf', 'New password confirm');
 
@@ -91,6 +91,22 @@ class Admin extends CI_Controller {
 
 		$this->load->view('accountModify', $accountInfo);
 
+	}
+
+	public function isUserValid()
+	{
+		$username = $this->session->userdata('username');
+		$password = $this->input->post('curpwd');
+
+		$query = $this->Account_model->isUserValid($username, $password);
+
+		if($query->num_rows()){
+			return TRUE;
+		}
+
+		$this->form_validation->set_message('isUserValid', 'Current password error!');
+
+		return FALSE;
 	}
 
 }
