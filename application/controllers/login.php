@@ -42,13 +42,12 @@ class Login extends CI_Controller {
 		
 		if($query->num_rows()){
 
-			foreach($query->result() as $row){
-				$userId = $row->id;
-			}
+			$userInfo = $query->row_array();
 
 			$data = array(
-				'username'	=> $username,
-				'userId'	=> $userId
+				'userId'	=> $userInfo['id'],
+				'username'	=> $userInfo['username'],
+				'email'		=> $userInfo['email']
 			);
 			
 			$this->session->set_userdata($data);
