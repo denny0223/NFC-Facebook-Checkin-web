@@ -7,6 +7,12 @@
 	</head>
 	<body>
 		<?php require_once('header.php'); ?>
+		<?php if(isset($resmsg)){ ?>
+		<div align="center" style="font-size: small; color: red;">
+			<?php echo $resmsg; ?>
+		</div>
+		<br>
+		<?php } ?>
 		<div align="center">
 			<table border="1">
 				<tr>
