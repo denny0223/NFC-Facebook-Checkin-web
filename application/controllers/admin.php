@@ -21,6 +21,7 @@ class Admin extends CI_Controller {
 		$stores = $query->result_array();
 
 		$data['stores'] = $stores;
+		$data['resmsg'] =  $this->session->flashdata('resmsg');
 
 		$this->load->view('storeList', $data);
 
