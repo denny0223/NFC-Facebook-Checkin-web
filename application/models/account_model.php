@@ -38,5 +38,14 @@ class Account_model extends CI_Model {
 		$this->db->query($sql, array($newpwd, $userId));
 	}
 
+	public function updateMail($userId, $email)
+	{
+		$sql = "UPDATE `account`
+				SET `email` = ?
+				WHERE `id` = ?";
+
+		$this->db->query($sql, array($email, $userId));
+	}
+
 }
 
