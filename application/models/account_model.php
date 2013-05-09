@@ -20,7 +20,7 @@ class Account_model extends CI_Model {
 	{
 		$userId = addslashes($userId);
 
-		$sql = "SELECT `id`, `username`, `google_account_id`
+		$sql = "SELECT `id`, `username`, `email`, `google_account_id`
 				FROM `account` 
 				WHERE `id` = ?";
 
