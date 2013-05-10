@@ -10,14 +10,7 @@
 					<img src="http://www.gravatar.com/avatar/<?php echo md5($this->session->userdata('email')); ?>?s=25" />
 				</td>
 				<td>
-<?php
-					if($this->session->userdata('username') == 'mgr') {
-						echo anchor('/rootmgr/account/' . $this->session->userdata('userId'), $this->session->userdata('username'));
-					}
-					else {
-						echo anchor('/admin/account/' . $this->session->userdata('userId'), $this->session->userdata('username'));
-					}
-?>
+					<?php echo anchor('/admin/account/' . $this->session->userdata('userId'), $this->session->userdata('username')); ?>
 					&nbsp;&nbsp;
 				</td>
 				<td>

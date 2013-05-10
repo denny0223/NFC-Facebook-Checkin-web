@@ -37,12 +37,16 @@
 						?>">
 					</td>
 				</tr>
+<?php if($this->session->userdata('username') != 'mgr') { ?>
 				<tr>
 					<th>Google account</th>
 					<td><?php echo htmlspecialchars($google_account_id); ?></td>
 				</tr>
+<?php } ?>
 			</table>
+<?php if($this->session->userdata('username') != 'mgr') { ?>
 			<h6>if you want to set or change your google account, please mail us</h6>
+<?php } ?>
 
 			<?php echo validation_errors('<div style="font-size: small; color: red;">'); ?>
 			
