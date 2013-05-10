@@ -23,3 +23,14 @@
 	echo form_close();
 ?>
 </div>
+<?php
+	$resmsg = $this->session->flashdata('resmsg');
+	if(!empty($resmsg)){
+?>
+		<div align="center" style="font-size: small; color: red;">
+			<?php echo $resmsg; ?>
+		</div>
+		<br>
+<?php
+	}
+?>
