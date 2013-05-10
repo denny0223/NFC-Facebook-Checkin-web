@@ -22,7 +22,7 @@ class Admin extends CI_Controller {
 
 		$data['stores'] = $stores;
 
-		$this->load->view('storeList', $data);
+		$this->load->view('adminStoreList', $data);
 
 	}
 
