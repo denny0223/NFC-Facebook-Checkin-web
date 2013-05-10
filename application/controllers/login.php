@@ -6,9 +6,6 @@ class Login extends CI_Controller {
 	{
 		$this->load->library(array('session', 'form_validation'));
 
-		var_dump($this->session->userdata('username'));
-		var_dump($this->session->userdata('userId'));
-
 		$this->load->helper(array('form', 'url'));
 
 		$this->form_validation->set_rules('username', 'Username', 'required');
@@ -22,11 +19,10 @@ class Login extends CI_Controller {
 		if($this->session->userdata('userId')){
 			$this->load->helper('url');
 			if($this->session->userdata('username') == 'mgr'){
-				$tmp = 'Rootmgr';
-				var_dump($tmp);
+				redirect('rootmgr');
 			}
 			else{
-				redirect('/admin');
+				redirect('admin');
 			}
 		}
 	}
