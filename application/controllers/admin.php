@@ -47,6 +47,7 @@ class Admin extends CI_Controller {
 		if($this->form_validation->run() == TRUE) {
 			$msg = $this->input->post('msg');
 			$this->Store_model->updateMsg($storeId, $msg);
+			$this->session->set_flashdata('resmsg', 'Update store message successfully!<br>');
 			redirect('/admin');
 		}
 
