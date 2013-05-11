@@ -21,7 +21,8 @@
 ?>
 				<tr>
 					<td align="center">
-						<?php echo htmlspecialchars($stores[$i]['store_name']); ?>
+						<?php echo anchor_popup('http://www.facebook.com/' . $stores[$i]['page_id'],
+													htmlspecialchars($stores[$i]['store_name'])); ?>
 					</td>
 					<td align="center">
 						<?php echo htmlspecialchars(stripslashes($stores[$i]['coupon_msg'])); ?>
