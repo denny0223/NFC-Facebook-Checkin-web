@@ -16,7 +16,19 @@
 			<table border="1">
 				<tr>
 					<th>店家名稱</th>
-					<td><?php echo htmlspecialchars($store_name); ?></td>
+					<td align="center">
+						<table border="0">
+							<tr>
+								<td>
+									<img src="https://graph.facebook.com/<?php echo $page_id; ?>/picture?width=25&height=25" />
+								</td>
+								<td>
+									<?php echo anchor_popup('http://www.facebook.com/' . $page_id,
+													htmlspecialchars($store_name)); ?>
+								</td>
+							</tr>
+						</table>
+					</td>
 				</tr>
 				<tr>
 					<th>訊息</th>
