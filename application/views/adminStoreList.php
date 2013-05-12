@@ -21,8 +21,17 @@
 ?>
 				<tr>
 					<td align="center">
-						<?php echo anchor_popup('http://www.facebook.com/' . $stores[$i]['page_id'],
+						<table border="0">
+							<tr>
+								<td>
+									<img src="https://graph.facebook.com/<?php echo $stores[$i]['page_id']; ?>/picture?width=25&height=25" />
+								</td>
+								<td>
+									<?php echo anchor_popup('http://www.facebook.com/' . $stores[$i]['page_id'],
 													htmlspecialchars($stores[$i]['store_name'])); ?>
+								</td>
+							</tr>
+						</table>
 					</td>
 					<td align="center">
 						<?php echo htmlspecialchars(stripslashes($stores[$i]['coupon_msg'])); ?>
