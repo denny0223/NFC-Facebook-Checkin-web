@@ -8,6 +8,15 @@
 	<body>
 		<?php require_once('header.php'); ?>
 		<div align="center">
+			<table width="50%" border="0">
+				<tr>
+					<td align="center"><?php echo anchor('/rootmgr/user', 'Manage Users'); ?></td>
+					<td align="center"><?php echo anchor('/rootmgr/addstore', 'Add Store'); ?></td>
+				</tr>
+			</table>
+		</div>
+		<br>
+		<div align="center">
 			<table border="1">
 				<tr>
 					<th>店家名稱</th>
