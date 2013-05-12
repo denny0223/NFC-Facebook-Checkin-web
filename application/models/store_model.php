@@ -47,6 +47,21 @@ class Store_model extends CI_Model {
 		return $query;
 	}
 
+	public function getStoreInfoWithOwnerName($storeId)
+	{
+		$storeId = addslashes($storeId);
+
+		$sql = "SELECT `account`.`username`, `store_info`.*
+				FROM `store_info`
+				JOIN `account`
+				ON `store_info`.`owner_id` = `account`.`id`
+				WHERE `store_info`.`id` = ?";
+
+		$query = $this->db->query($sql, array($storeId));
+
+		return $query;
+	}
+
 	public function updateMsg($storeId, $msg)
 	{
 		$storeId = addslashes($storeId);
