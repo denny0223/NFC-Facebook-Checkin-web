@@ -94,7 +94,7 @@
 					<th>問卷結果</th>
 					<td>
 						<?php echo anchor_popup($feedback_result_url, 'link'); ?><br>
-						<textarea name="feedback_result_url" rows="4" cols="30"><?php echo $feedback_result_url; ?>"</textarea>
+						<textarea name="feedback_result_url" rows="4" cols="30"><?php echo $feedback_result_url; ?></textarea>
 					</td>
 				</tr>
 			</table>
