@@ -58,5 +58,16 @@ class Store_model extends CI_Model {
 		$this->db->query($sql, array($msg, $storeId));
 	}
 
+	public function getAllStoreWithOwnerName()
+	{
+		$sql = "SELECT `account`.`username`, `store_info`.*
+				FROM `store_info`, `account`
+				WHERE `account`.`id` = `store_info`.`owner_id`";
+
+		$query = $this->db->query($sql);
+
+		return $query;
+	}
+
 }
 
