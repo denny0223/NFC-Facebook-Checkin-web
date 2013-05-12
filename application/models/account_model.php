@@ -47,5 +47,16 @@ class Account_model extends CI_Model {
 		$this->db->query($sql, array($email, $userId));
 	}
 
+	public function getAllUsername()
+	{
+		$sql = "SELECT `username`
+				FROM `account`
+				WHERE `username` != 'mgr'";
+
+		$query = $this->db->query($sql);
+
+		return $query;
+	}
+
 }
 
