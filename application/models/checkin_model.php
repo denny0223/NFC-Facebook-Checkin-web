@@ -31,7 +31,7 @@ class Checkin_model extends CI_Model {
 		$fbId = addslashes($fbId);
 		$storeId = addslashes($storeId);
 
-		$sql = "INSERT INTO `user_info`
+		$sql = "INSERT INTO `checkin_info`
 					(`fb_id`, `date`, `store_id`)
 				VALUES (?, CURRENT_TIMESTAMP, ?)";
 
