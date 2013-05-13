@@ -20,15 +20,16 @@
 				$.get("https://graph.facebook.com/"+$("#page_id")[0].value, function(a) {
 					if(a.likes === undefined){
 						$("#store_name")[0].textContent = "";
-						alert('Not a page ID');
+						$("#errmsg")[0].innerHTML='<font color="red">Not a page ID</font>';
 						return;
 					}
 					$("#store_avatar")[0].src="https://graph.facebook.com/" + $("#page_id")[0].value + "/picture?width=25&height=25";
 					$("#store_name")[0].textContent=a.name;
+					$("#errmsg")[0].innerHTML='';
 				})
 				.fail(function() {
 					$("#store_name")[0].textContent = "";
-					alert("ID not available");
+					$("#errmsg")[0].innerHTML='<font color="red">ID not available</font>';
 				});
 			}
 		</script>
@@ -61,8 +62,10 @@
 				<tr>
 					<th>粉絲團ID</th>
 					<td align="center">
-						<input id="page_id" type="text" name="page_id" value="<?php echo htmlspecialchars($page_id); ?>">
+						<input id="page_id" type="text" name="page_id" value="<?php echo htmlspecialchars($page_id); ?>" onblur="ref();">
 						<input type="button" name="some_name" value="Refresh" onclick="ref();">
+						<div id="errmsg">
+						</div>
 					</td>
 				</tr>
 				<tr>
