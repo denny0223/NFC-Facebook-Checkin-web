@@ -58,6 +58,7 @@ class Rootmgr extends CI_Controller {
 		}
 
 		$this->form_validation->set_rules('page_id', 'Page ID', 'required|callback__isPageIdValid');
+		$this->form_validation->set_rules('username', 'Username', 'callback__isUsernameValid');
 		$this->form_validation->set_rules('tag_id', 'Tag ID', 'required');
 		$this->form_validation->set_rules('feedback_url', 'Feedback url', 'required');
 		$this->form_validation->set_rules('feedback_result_url', 'Feedback result url', 'required');
@@ -89,6 +90,15 @@ class Rootmgr extends CI_Controller {
 		$this->form_validation->set_message('_isPageIdValid', 'Not available Page ID!');
 
 		return $this->Store_model->isPageIdValid($pageId);
+	}
+
+	public function _isUsernameValid($username)
+	{
+		$this->load->model("Account_model", '', TRUE);
+
+		$this->form_validation->set_message('_isUsernameValid', 'Not available username!');
+
+		return $this->Account_model->isUsernameExist($username);
 	}
 
 }
