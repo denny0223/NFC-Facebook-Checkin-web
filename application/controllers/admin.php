@@ -102,7 +102,7 @@ class Admin extends CI_Controller {
 			redirect('/admin');
 		}
 
-		$query = $this->Account_model->getAccountInfo($userId);
+		$query = $this->Account_model->getUserInfo($userId);
 
 		$accountInfo = $query->row_array();
 

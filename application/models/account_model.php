@@ -16,7 +16,7 @@ class Account_model extends CI_Model {
 		return $query;
 	}
 
-	public function getAccountInfo($userId)
+	public function getUserInfo($userId)
 	{
 		$userId = addslashes($userId);
 
