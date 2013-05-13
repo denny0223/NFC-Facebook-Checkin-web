@@ -57,8 +57,16 @@ class Rootmgr extends CI_Controller {
 			redirect('/login');
 		}
 
+		$this->form_validation->set_rules('page_id', 'Page ID', 'required|callback__isPageIdValid');
+		$this->form_validation->set_rules('tag_id', 'Tag ID', 'required');
+		$this->form_validation->set_rules('feedback_url', 'Feedback url', 'required');
+		$this->form_validation->set_rules('feedback_result_url', 'Feedback result url', 'required');
+
 		$cancel = $this->input->post('cancel');
 		if($cancel == 'Cancel') redirect('/rootmgr/store');
+
+		if($this->form_validation->run() == TRUE) {
+		}
 
 		$query = $this->Store_model->getStoreInfoWithOwnerName($storeId);
 		$data = $query->row_array();
@@ -72,6 +80,15 @@ class Rootmgr extends CI_Controller {
 
 		$this->load->view('rootmgrStoreModify', $data);
 
+	}
+
+	public function _isPageIdValid($pageId)
+	{
+		$this->load->model("Store_model", '', TRUE);
+
+		$this->form_validation->set_message('_isPageIdValid', 'Not available Page ID!');
+
+		return $this->Store_model->isPageIdValid($pageId);
 	}
 
 }
