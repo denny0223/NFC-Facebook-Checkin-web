@@ -10,7 +10,7 @@ class Login extends CI_Controller {
 
 		$this->form_validation->set_rules('username', 'Username', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
-		$this->form_validation->set_rules('login', 'login', 'callback_isUserValid');
+		$this->form_validation->set_rules('login', 'login', 'callback__isUserValid');
 
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('login');
@@ -27,7 +27,7 @@ class Login extends CI_Controller {
 		}
 	}
 
-	public function isUserValid()
+	public function _isUserValid()
 	{
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
