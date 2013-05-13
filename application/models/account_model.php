@@ -58,5 +58,18 @@ class Account_model extends CI_Model {
 		return $query;
 	}
 
+	public function isUsernameExist($username)
+	{
+		$sql = "SELECT `id`
+				FROM `account`
+				WHERE `username` = ?";
+
+		$query = $this->db->query($sql, array($username));
+
+		if($query->num_rows() > 0) return TRUE;
+
+		return FALSE;
+	}
+
 }
 
