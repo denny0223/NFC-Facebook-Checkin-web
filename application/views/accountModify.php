@@ -31,8 +31,7 @@
 				<tr>
 					<th>E-mail</th>
 					<td><input type="email" name="email" value="<?php
-							$svemail = set_value('email');
-							if(!empty($svemail)) echo $svemail;
+							if(set_value('email')) echo set_value('email');
 							else echo htmlspecialchars($email);
 						?>">
 					</td>
