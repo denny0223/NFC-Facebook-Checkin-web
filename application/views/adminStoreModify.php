@@ -33,7 +33,7 @@
 				<tr>
 					<th>訊息</th>
 					<td>
-						<textarea name="msg"><?php echo htmlspecialchars(stripslashes($coupon_msg)); ?></textarea>
+						<textarea name="msg" rows="4" cols="30"><?php echo htmlspecialchars(stripslashes($coupon_msg)); ?></textarea>
 					</td>
 				</tr>
 				<tr>
