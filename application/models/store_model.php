@@ -84,5 +84,16 @@ class Store_model extends CI_Model {
 		return $query;
 	}
 
+	public function isPageIdValid($pageId)
+	{
+		if($json = @file_get_contents("https://graph.facebook.com/" . $pageId)){
+			$data = json_decode($json, true);
+			if(isset($data['likes'])){
+				return TRUE;
+			}
+		}
+		return FALSE;
+	}
+
 }
 
