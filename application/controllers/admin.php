@@ -121,7 +121,7 @@ class Admin extends CI_Controller {
 			return TRUE;
 		}
 
-		$this->form_validation->set_message('isUserValid', 'Current password error!');
+		$this->form_validation->set_message('_isUserValid', 'Current password error!');
 
 		return FALSE;
 	}

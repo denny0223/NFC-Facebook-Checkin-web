@@ -51,7 +51,7 @@ class Login extends CI_Controller {
 			return TRUE;
 		}
 	
-		$this->form_validation->set_message('isUserValid', 'Username or Password Error!!');
+		$this->form_validation->set_message('_isUserValid', 'Username or Password Error!!');
 
 		return FALSE;
 	}
