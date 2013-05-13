@@ -66,6 +66,7 @@ class Admin extends CI_Controller {
 		$this->load->model("Account_model", '', TRUE);
 
 		$userId = $this->session->userdata('userId');
+		$username = $this->session->userdata('username');
 
 		// Authentication
 		if(!$accountId || $userId != $accountId){
@@ -97,6 +98,7 @@ class Admin extends CI_Controller {
 
 			$this->session->set_flashdata('resmsg', $resmsg);
 
+			if($username == 'mgr') redirect('/rootmgr');
 			redirect('/admin');
 		}
 
