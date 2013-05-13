@@ -72,7 +72,7 @@ class Admin extends CI_Controller {
 			redirect('/login');
 		}
 
-		$this->form_validation->set_rules('curpwd', 'Current password', 'required|callback_isUserValid');
+		$this->form_validation->set_rules('curpwd', 'Current password', 'required|callback__isUserValid');
 		$this->form_validation->set_rules('newpwd', 'New password', 'matches[newpwdconf]');
 		$this->form_validation->set_rules('email', 'E-mail', '');
 
@@ -108,7 +108,7 @@ class Admin extends CI_Controller {
 
 	}
 
-	public function isUserValid()
+	public function _isUserValid()
 	{
 		$username = $this->session->userdata('username');
 		$password = $this->input->post('curpwd');
