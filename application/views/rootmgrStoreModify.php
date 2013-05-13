@@ -63,7 +63,6 @@
 					<th>粉絲團ID</th>
 					<td align="center">
 						<input id="page_id" type="text" name="page_id" value="<?php echo htmlspecialchars($page_id); ?>" onblur="ref();">
-						<input type="button" name="some_name" value="Refresh" onclick="ref();">
 						<div id="errmsg">
 						</div>
 					</td>
