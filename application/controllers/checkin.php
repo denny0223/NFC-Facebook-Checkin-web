@@ -2,7 +2,7 @@
 
 class Checkin extends CI_Controller {
 
-	public function getStoreInfo($tagId = null, $fbId = null)
+	public function getStoreInfo($tagId = null)
 	{
 		$this->load->model("Checkin_model", '', TRUE);
 		$this->output->set_content_type('application/json');
@@ -17,12 +17,6 @@ class Checkin extends CI_Controller {
 			$result['store_name']	= $row->store_name;
 			$result['coupon_msg']	= $row->coupon_msg;
 			$result['feedback_url']	= $row->feedback_url;
-		}
-
-		if(isset($fbId)){
-			if($this->Checkin_model->isFBIdValid($fbId)){
-				$this->Checkin_model->userCheckin($fbId, $storeId);
-			}
 		}
 
 		if(isset($result)){
