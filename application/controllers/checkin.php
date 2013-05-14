@@ -9,6 +9,8 @@ class Checkin extends CI_Controller {
 
 		$data = $this->Checkin_model->getStoreInfo($tagId);
 
+		if($data->num_rows() == 0) return;
+
 		foreach($data->result() as $row) {
 			$storeId 				= $row->id;
 			$result['page_id']		= $row->page_id;
