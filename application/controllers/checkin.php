@@ -31,4 +31,23 @@ class Checkin extends CI_Controller {
 		}
 	}
 
+	public function checkedin($tagId = null, $fbId = null)
+	{
+		$this->load->model("Checkin_model", '', TRUE);
+		$this->output->set_content_type('application/json');
+
+		$data = $this->Checkin_model->getStoreInfo($tagId);
+
+		if($data->num_rows() == 0) return;
+
+		$storeInfo = $data->row_array();
+		$storeId = $storeInfo['id'];
+
+		if(isset($fbId)){
+			if($this->Checkin_model->isFBIdValid($fbId)){
+				$this->Checkin_model->userCheckin($fbId, $storeId);
+			}
+		}
+	}
+
 }
