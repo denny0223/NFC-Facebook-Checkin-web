@@ -43,7 +43,7 @@
 
 			<?php echo form_open('rootmgr/storemodify/' . $id); ?>
 
-			<table border="1" class="table table-nonfluid">
+			<table class="table table-nonfluid">
 				<tr>
 					<th>店家名稱</th>
 					<td align="center">

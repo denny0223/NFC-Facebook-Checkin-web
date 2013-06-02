@@ -13,18 +13,15 @@
 
 			<?php echo form_open('admin/store/' . $id); ?>
 
-			<table class="table table-nonfluid">
+			<table border="1">
 				<tr>
 					<th>店家名稱</th>
-					<td align="center">
-						<img src="https://graph.facebook.com/<?php echo $page_id; ?>/picture?width=25&height=25" />
-						<?php echo anchor_popup('http://www.facebook.com/' . $page_id, htmlspecialchars($store_name)); ?>
-					</td>
+					<td><?php echo htmlspecialchars($store_name); ?></td>
 				</tr>
 				<tr>
 					<th>訊息</th>
 					<td>
-						<textarea name="msg" rows="4" cols="30"><?php echo htmlspecialchars(stripslashes($coupon_msg)); ?></textarea>
+						<textarea name="msg"><?php echo htmlspecialchars(stripslashes($coupon_msg)); ?></textarea>
 					</td>
 				</tr>
 				<tr>
@@ -45,8 +42,8 @@
 
 			<?php echo validation_errors('<div style="font-size: small; color: red;">'); ?>
 			
-			<input type="submit" name="submit" value="Submit" class="btn">
-			<input type="submit" name="cancel" value="Cancel" class="btn">
+			<input type="submit" name="submit" value="Submit">
+			<input type="submit" name="cancel" value="Cancel">
 			<?php echo form_close(); ?>
 
 		</div>

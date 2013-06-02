@@ -11,20 +11,10 @@
 	echo form_open('logout');
 ?>
 	<div id="logout" align="right">
-		<table border="0">
-			<tr>
-				<td>
-					<img src="http://www.gravatar.com/avatar/<?php echo md5($this->session->userdata('email')); ?>?s=25" />
-				</td>
-				<td>
-					<?php echo anchor('/admin/account/' . $this->session->userdata('userId'), $this->session->userdata('username')); ?>
-					&nbsp;&nbsp;
-				</td>
-				<td>
-					<input class="btn btn-link" type="submit" name="logout" value="Logout">
-				</td>
-			</tr>
-		</table>
+		<img src="http://www.gravatar.com/avatar/<?php echo md5($this->session->userdata('email')); ?>?s=25" />
+		<?php echo anchor('/admin/account/' . $this->session->userdata('userId'), $this->session->userdata('username')); ?>
+		&nbsp;&nbsp;
+		<input class="btn btn-link" type="submit" name="logout" value="Logout">
 	</div>
 <?php
 	echo form_close();

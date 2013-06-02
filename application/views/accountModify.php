@@ -11,7 +11,7 @@
 		<div align="center">
 			<?php echo form_open('admin/account/' . $id); ?>
 
-			<table border="1" class="table table-nonfluid">
+			<table class="table table-nonfluid">
 				<tr>
 					<th>Username</th>
 					<td><?php echo htmlspecialchars($username); ?>
