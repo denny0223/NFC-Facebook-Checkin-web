@@ -16,20 +16,11 @@
 
 			<?php echo form_open('login'); ?>
 
-			<table border="0">
-				<tr>
-					<th>Username</th>
-					<td>
-						<input type="text" name="username" value="<?php echo set_value('username'); ?>" />
-					</td>
-				</tr>
-				<tr>
-					<th>Password</th>
-					<td>
-						<input type="password" name="password" value="" />
-					</td>
-				</tr>
-			</table>
+				<strong>Username</strong>
+				<input type="text" name="username" value="<?php echo set_value('username'); ?>" />
+				<br>
+				<strong>Password</strong>
+				<input type="password" name="password" value="" />
 
 			<div><input type="submit" name="login" value="Login" class="btn btn-primary" /></div>
 
