@@ -50,11 +50,10 @@
 						<table border="0">
 							<tr>
 								<td>
-									<img id="store_avatar" src="https://graph.facebook.com/<?php echo $page_id; ?>/picture?width=25&height=25" />
+									<img id="store_avatar" />
 								</td>
 								<td>
-									<?php echo anchor('http://www.facebook.com/' . $page_id,
-													htmlspecialchars($store_name), 'target="_blank" id="store_name"'); ?>
+									<a target="_blank" id="store_name"></a>
 								</td>
 							</tr>
 						</table>
@@ -111,5 +110,8 @@
 			<?php echo form_close(); ?>
 
 		</div>
+		<script type="text/javascript" charset="utf-8">
+			window.onload=ref;
+		</script>
 	</body>
 </html>
