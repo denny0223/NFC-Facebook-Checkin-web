@@ -17,7 +17,7 @@
 		</div>
 		<br>
 		<div align="center">
-			<table border="1">
+			<table border="1" class="table table-striped">
 				<tr>
 					<th>店家名稱</th>
 					<th>管理者</th>
@@ -32,17 +32,9 @@
 ?>
 				<tr>
 					<td align="center">
-						<table border="0">
-							<tr>
-								<td>
-									<img src="https://graph.facebook.com/<?php echo $stores[$i]['page_id']; ?>/picture?width=25&height=25" />
-								</td>
-								<td>
-									<?php echo anchor_popup('http://www.facebook.com/' . $stores[$i]['page_id'],
-													htmlspecialchars($stores[$i]['store_name'])); ?>
-								</td>
-							</tr>
-						</table>
+						<img src="https://graph.facebook.com/<?php echo $stores[$i]['page_id']; ?>/picture?width=25&height=25" />
+						<?php echo anchor_popup('http://www.facebook.com/' . $stores[$i]['page_id'],
+										htmlspecialchars($stores[$i]['store_name'])); ?>
 					</td>
 					<td align="center">
 						<?php echo htmlspecialchars($stores[$i]['username']); ?>
@@ -54,14 +46,14 @@
 						<?php echo htmlspecialchars(stripslashes($stores[$i]['coupon_msg'])); ?>
 					</td>
 					<td align="center">
-						<?php echo anchor_popup($stores[$i]['feedback_url'], 'link'); ?>
+						<?php echo anchor($stores[$i]['feedback_url'], 'Link', 'target="_blank" class="btn btn-info"'); ?>
 					</td>
 					<td align="center">
-						<?php echo anchor_popup($stores[$i]['feedback_result_url'], 'link'); ?>
+						<?php echo anchor($stores[$i]['feedback_result_url'], 'Link', 'target="_blank" class="btn btn-info"'); ?>
 					</td>
 					<td align="center">
 						<?php
-						echo anchor('/rootmgr/storemodify/' . $stores[$i]['id'], 'edit');
+						echo anchor('/rootmgr/storemodify/' . $stores[$i]['id'], 'Edit', 'class="btn btn-primary"');
 						?>
 					</td>
 				</tr>
