@@ -11,7 +11,7 @@
 	echo form_open('logout');
 ?>
 	<div id="logout" align="right">
-		<img src="http://www.gravatar.com/avatar/<?php echo md5($this->session->userdata('email')); ?>?s=25" />
+		<img class="img-rounded" src="http://www.gravatar.com/avatar/<?php echo md5($this->session->userdata('email')); ?>?s=25" />
 		<?php echo anchor('/admin/account/' . $this->session->userdata('userId'), $this->session->userdata('username')); ?>
 		&nbsp;&nbsp;
 		<input class="btn btn-link" type="submit" name="logout" value="Logout">
