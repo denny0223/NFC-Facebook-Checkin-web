@@ -1,5 +1,10 @@
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
 <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<style type="text/css">
+	.table-nonfluid {
+		width: auto;
+	}
+</style>
 <div id="header">
 <?php 
 	$this->load->helper('form');
