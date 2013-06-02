@@ -25,6 +25,7 @@
 					}
 					$("#store_avatar")[0].src="https://graph.facebook.com/" + $("#page_id")[0].value + "/picture?width=25&height=25";
 					$("#store_name")[0].textContent=a.name;
+					$("#store_name")[0].href="https://www.facebook.com/" + $("#page_id")[0].value;
 					$("#errmsg")[0].innerHTML='';
 				})
 				.fail(function() {
