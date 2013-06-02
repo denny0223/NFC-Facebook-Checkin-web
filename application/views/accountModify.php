@@ -11,7 +11,7 @@
 		<div align="center">
 			<?php echo form_open('admin/account/' . $id); ?>
 
-			<table border="1">
+			<table border="1" class="table table-nonfluid">
 				<tr>
 					<th>Username</th>
 					<td><?php echo htmlspecialchars($username); ?>
@@ -49,8 +49,9 @@
 
 			<?php echo validation_errors('<div style="font-size: small; color: red;">'); ?>
 			
-			<input type="submit" name="submit" value="Submit">
-			<input type="submit" name="cancel" value="Cancel">
+			<input type="submit" name="submit" value="Submit" class="btn">
+			&nbsp;&nbsp;
+			<input type="submit" name="cancel" value="Cancel" class="btn">
 			<?php echo form_close(); ?>
 
 		</div>
