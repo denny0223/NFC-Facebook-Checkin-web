@@ -43,20 +43,12 @@
 
 			<?php echo form_open('rootmgr/storemodify/' . $id); ?>
 
-			<table border="1">
+			<table border="1" class="table table-nonfluid">
 				<tr>
 					<th>店家名稱</th>
 					<td align="center">
-						<table border="0">
-							<tr>
-								<td>
-									<img id="store_avatar" />
-								</td>
-								<td>
-									<a target="_blank" id="store_name"></a>
-								</td>
-							</tr>
-						</table>
+						<img id="store_avatar" />
+						<a target="_blank" id="store_name"></a>
 					</td>
 				</tr>
 				<tr>
@@ -105,8 +97,9 @@
 
 			<?php echo validation_errors('<div style="font-size: small; color: red;">'); ?>
 			
-			<input type="submit" name="submit" value="Submit">
-			<input type="submit" name="cancel" value="Cancel">
+			<input type="submit" name="submit" value="Submit" class="btn">
+			&nbsp;&nbsp;
+			<input type="submit" name="cancel" value="Cancel" class="btn">
 			<?php echo form_close(); ?>
 
 		</div>
