@@ -17,7 +17,7 @@
 		</div>
 		<br>
 		<div align="center">
-			<table border="1" class="table table-striped">
+			<table border="1" class="table table-striped table-nonfluid">
 				<tr>
 					<th>店家名稱</th>
 					<th>管理者</th>
