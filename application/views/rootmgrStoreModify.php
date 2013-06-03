@@ -9,9 +9,9 @@
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 		<script>
 			$(function() {
-				var availableTags = [ <?php echo '"' . @implode("\",\"", $users) . '"'; ?> ];
+				var availableUsers = [ <?php echo '"' . @implode("\",\"", $users) . '"'; ?> ];
 				$( "#username" ).autocomplete({
-					source: availableTags
+					source: availableUsers
 				});
 			});
 		</script>
