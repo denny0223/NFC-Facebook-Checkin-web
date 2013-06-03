@@ -12,7 +12,6 @@ class Checkin extends CI_Controller {
 		if($data->num_rows() == 0) return;
 
 		foreach($data->result() as $row) {
-			$storeId 				= $row->id;
 			$result['page_id']		= $row->page_id;
 			$result['store_name']	= $row->store_name;
 			$result['coupon_msg']	= $row->coupon_msg;
