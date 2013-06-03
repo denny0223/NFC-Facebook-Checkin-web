@@ -20,8 +20,7 @@ class Checkin extends CI_Controller {
 		}
 
 		if(isset($result)){
-			$str = urldecode(json_encode($result));
-			echo $str;
+			echo urldecode(json_encode($result));
 		}
 	}
 
